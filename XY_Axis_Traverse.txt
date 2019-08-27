@@ -1,0 +1,47 @@
+/* Program to calculate circle after traversing as per i/p string*/
+#include <stdio.h>
+#include<conio.h>
+void move();
+int main()
+{
+	int x=0,y=0,i;
+	char s[20],dir[]={'n','e','s','w'},temp;
+	printf("Enter ant string=");
+	gets(s);
+	//GLGLGLG
+	for(i=0;s[i]!='\0';i++)
+	{
+		if(s[i]=='L')
+		{
+			temp=dir[3];
+			dir[3]=dir[2];
+			dir[2]=dir[1];
+			dir[1]=dir[0];
+			dir[0]=temp;	
+	    }
+	    else if(s[i]=='R')
+	    {
+	    	temp=dir[0];
+			dir[0]=dir[1];
+			dir[1]=dir[2];
+			dir[2]=dir[3];
+			dir[3]=temp;
+	    }
+	    else
+	    {
+	    	if(dir[0]=='n')
+	    	y=y+1;
+	    	else if(dir[0]=='e')
+	    	x=x+1;
+	    	else if(dir[0]=='s')
+	    	y=y-1;
+	    	else
+	    	x=x-1;
+	    }
+	}
+		if(x==0&&y==0)
+	    printf("Complete Circle");
+	    else
+	    printf("Not Complete Circle");
+	return 0;
+}
